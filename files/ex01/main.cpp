@@ -46,6 +46,26 @@ int main(void)
 		std::cout << "Error : " << e.what() << std::endl;
 	}
 
+	try
+	{
+		bureaucrat->setGrade(42);
+		std::cout << bureaucrat;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << "Error : " << e.what() << std::endl;
+	}
+
+	try
+	{
+		Form form = Form("Form1", 155, 11);
+	}
+	catch (std::exception & e)
+	{
+		std::cout << "Error : " << e.what() << std::endl;
+
+	}
+
 	Form *form = new Form("Form1", 10, 11);
 	std::cout << form;
 
@@ -55,7 +75,7 @@ int main(void)
 	}
 	catch (std::exception & e)
 	{
-		std::cout << "Error : " << e.what() << std::endl;
+		std::cout << bureaucrat->getName() << " couldn’t sign " << form->getName() << " because : " << e.what() << std::endl;
 	}
 
 	bureaucrat->setGrade(11);
@@ -66,9 +86,21 @@ int main(void)
 	}
 	catch (std::exception & e)
 	{
-		std::cout << "Error : " << e.what() << std::endl;
+		std::cout << bureaucrat->getName() << " couldn’t sign " << form->getName() << " because : " << e.what() << std::endl;
 	}
 
-	delete bureaucrat;
+	bureaucrat->setGrade(10);
+
+	try
+	{
+		form->beSigned(*bureaucrat);
+		std::cout << form;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << bureaucrat->getName() << " couldn’t sign " << form->getName() << " because : " << e.what() << std::endl;
+	}
+
+	delete (bureaucrat);
 	return (0);
 }
