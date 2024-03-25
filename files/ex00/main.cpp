@@ -45,6 +45,16 @@ int main(void)
 		std::cout << "Error : " << e.what() << std::endl;
 	}
 
-	delete bureaucrat;
+	try
+	{
+		bureaucrat->setGrade(42);
+		std::cout << bureaucrat;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << "Error : " << e.what() << std::endl;
+	}
+
+	delete (bureaucrat);
 	return (0);
 }
