@@ -10,65 +10,40 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main(void)
 {
-	Bureaucrat *bureaucrat = new Bureaucrat("Bob", 1);
-	std::cout << bureaucrat;
+	Bureaucrat bureaucrat = Bureaucrat("Bob", 1);
+	std::cout << &bureaucrat << std::endl;
+
+	ShrubberyCreationForm shrubbery = ShrubberyCreationForm("home");
+	std::cout << &shrubbery << std::endl;
+
+	RobotomyRequestForm robotomy = RobotomyRequestForm("bot");
+	std::cout << &robotomy << std::endl;
+
+	PresidentialPardonForm presidential = PresidentialPardonForm("James");
+	std::cout << &presidential << std::endl;
 
 	try
 	{
-		bureaucrat->setGradeUp();
+		shrubbery.beSigned(bureaucrat);
+		shrubbery.execute(bureaucrat);
+		robotomy.beSigned(bureaucrat);
+		robotomy.execute(bureaucrat);
+		presidential.beSigned(bureaucrat);
+		presidential.execute(bureaucrat);
 	}
-	catch (std::exception & e)
+	catch(const std::exception& e)
 	{
-		std::cout << "Error : " << e.what() << std::endl;
+		std::cerr << e.what() << '\n';
 	}
 
-	try
-	{
-		bureaucrat->setGrade(150);
-		bureaucrat->setGradeDown();
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "Error : " << e.what() << std::endl;
-	}
 
-	try
-	{
-		bureaucrat->setGrade(-1);
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "Error : " << e.what() << std::endl;
-	}
-
-	AForm *form = new AForm("Form1", 10, 11);
-	std::cout << form;
-
-	try
-	{
-		form->beSigned(*bureaucrat);
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "Error : " << e.what() << std::endl;
-	}
-
-	bureaucrat->setGrade(11);
-
-	try
-	{
-		form->beSigned(*bureaucrat);
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "Error : " << e.what() << std::endl;
-	}
-
-	delete bureaucrat;
 	return (0);
 }

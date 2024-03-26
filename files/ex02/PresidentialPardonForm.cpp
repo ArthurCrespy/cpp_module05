@@ -13,7 +13,7 @@
 #include "PresidentialPardonForm.hpp"
 #include "AForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PresidentialPardonForm", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PresidentialPardonForm", 25, 5), _target("default")
 {
 	std::cout << "PresidentialPardonForm default constructor called" << std::endl;
 }
@@ -21,7 +21,6 @@ PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PresidentialPardon
 PresidentialPardonForm::PresidentialPardonForm(std::string const &target) : AForm("PresidentialPardonForm", 25, 5), _target(target)
 {
 	std::cout << "PresidentialPardonForm name constructor called" << std::endl;
-
 }
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &src) : AForm(src)
@@ -35,22 +34,16 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 	std::cout << "PresidentialPardonForm destructor called" << std::endl;
 }
 
+PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &rhs)
+{
+	std::cout << "PresidentialPardonForm assignation operator called" << std::endl;
+	if (this != &rhs)
+		this->setSigned(rhs.getSigned());
+	return (*this);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void PresidentialPardonForm::execute(Bureaucrat const &executor) const
+{
+	if (checkExec(executor))
+		std::cout << this->_target << " has been pardoned by Zafod Beeblebrox" << std::endl;
+}
