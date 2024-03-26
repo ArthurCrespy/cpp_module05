@@ -15,12 +15,12 @@
 
 int main(void)
 {
-	Bureaucrat *bureaucrat = new Bureaucrat("Bob", 1);
-	std::cout << bureaucrat;
+	Bureaucrat bureaucrat = Bureaucrat("Bob", 1);
+	std::cout << &bureaucrat;
 
 	try
 	{
-		bureaucrat->setGradeUp();
+		bureaucrat.setGradeUp();
 	}
 	catch (std::exception & e)
 	{
@@ -29,8 +29,8 @@ int main(void)
 
 	try
 	{
-		bureaucrat->setGrade(150);
-		bureaucrat->setGradeDown();
+		bureaucrat.setGrade(150);
+		bureaucrat.setGradeDown();
 	}
 	catch (std::exception & e)
 	{
@@ -39,7 +39,7 @@ int main(void)
 
 	try
 	{
-		bureaucrat->setGrade(-1);
+		bureaucrat.setGrade(-1);
 	}
 	catch (std::exception & e)
 	{
@@ -48,8 +48,8 @@ int main(void)
 
 	try
 	{
-		bureaucrat->setGrade(42);
-		std::cout << bureaucrat;
+		bureaucrat.setGrade(42);
+		std::cout << &bureaucrat;
 	}
 	catch (std::exception & e)
 	{
@@ -66,41 +66,40 @@ int main(void)
 
 	}
 
-	Form *form = new Form("Form1", 10, 11);
-	std::cout << form;
+	Form form = Form("Form1", 10, 11);
+	std::cout << &form;
 
 	try
 	{
-		form->beSigned(*bureaucrat);
+		form.beSigned(bureaucrat);
 	}
 	catch (std::exception & e)
 	{
-		std::cout << bureaucrat->getName() << " couldn’t sign " << form->getName() << " because : " << e.what() << std::endl;
+		std::cout << bureaucrat.getName() << " couldn’t sign " << form.getName() << " because : " << e.what() << std::endl;
 	}
 
-	bureaucrat->setGrade(11);
+	bureaucrat.setGrade(11);
 
 	try
 	{
-		form->beSigned(*bureaucrat);
+		form.beSigned(bureaucrat);
 	}
 	catch (std::exception & e)
 	{
-		std::cout << bureaucrat->getName() << " couldn’t sign " << form->getName() << " because : " << e.what() << std::endl;
+		std::cout << bureaucrat.getName() << " couldn’t sign " << form.getName() << " because : " << e.what() << std::endl;
 	}
 
-	bureaucrat->setGrade(10);
+	bureaucrat.setGrade(10);
 
 	try
 	{
-		form->beSigned(*bureaucrat);
-		std::cout << form;
+		form.beSigned(bureaucrat);
+		std::cout << &form;
 	}
 	catch (std::exception & e)
 	{
-		std::cout << bureaucrat->getName() << " couldn’t sign " << form->getName() << " because : " << e.what() << std::endl;
+		std::cout << bureaucrat.getName() << " couldn’t sign " << form.getName() << " because : " << e.what() << std::endl;
 	}
 
-	delete (bureaucrat);
 	return (0);
 }
