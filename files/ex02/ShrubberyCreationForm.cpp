@@ -37,7 +37,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 {
 	std::cout << "ShubberyCreationForm assignation operator called" << std::endl;
 	if (this != &rhs)
-		this->setSigned(rhs.getSigned());
+		this->_target = rhs._target;
 	return (*this);
 }
 

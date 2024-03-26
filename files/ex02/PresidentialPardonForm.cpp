@@ -38,7 +38,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 {
 	std::cout << "PresidentialPardonForm assignation operator called" << std::endl;
 	if (this != &rhs)
-		this->setSigned(rhs.getSigned());
+		this->_target = rhs._target;
 	return (*this);
 }
 

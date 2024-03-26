@@ -37,7 +37,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &r
 {
 	std::cout << "RobotomyRequestForm assignation operator called" << std::endl;
 	if (this != &rhs)
-		this->setSigned(rhs.getSigned());
+		this->_target = rhs._target;;
 	return (*this);
 }
 
