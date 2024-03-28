@@ -49,7 +49,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 
 	if (checkExec(executor))
 	{
-		outfile.open(this->_target + "_shrubbery");
+		outfile.open((this->_target + "_shrubbery").c_str());
 		if (outfile.fail() || !outfile.is_open())
 			throw std::runtime_error("Error while opening outfile");
 		infile.open("tree.ascii");
