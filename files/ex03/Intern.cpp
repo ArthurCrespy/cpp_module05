@@ -41,17 +41,17 @@ Intern &Intern::operator=(const Intern &rhs)
 
 AForm *Intern::createPPForm(std::string const &target)
 {
-    return new PresidentialPardonForm(target);
+    return (new PresidentialPardonForm(target));
 }
 
 AForm *Intern::createRRForm(std::string const &target)
 {
-    return new RobotomyRequestForm(target);
+    return (new RobotomyRequestForm(target));
 }
 
 AForm *Intern::createSCForm(std::string const &target)
 {
-    return new ShrubberyCreationForm(target);
+    return (new ShrubberyCreationForm(target));
 }
 
 AForm *Intern::makeForm(std::string const &formName, std::string const &target)
@@ -69,5 +69,5 @@ AForm *Intern::makeForm(std::string const &formName, std::string const &target)
     }
 
     std::cout << "Intern cannot find the form requested" << std::endl;
-    return (nullptr);
+    return (NULL);
 }

@@ -58,12 +58,11 @@ int main(void)
 
 	try
 	{
-		Form form = Form("Form1", 155, 11);
+		Form form = Form("Form0", 155, 11);
 	}
 	catch (std::exception & e)
 	{
 		std::cout << "Error : " << e.what() << std::endl;
-
 	}
 
 	Form form = Form("Form1", 10, 11);
