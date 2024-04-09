@@ -26,7 +26,7 @@ AForm::AForm(std::string const name, int gradeSign, int gradeExec) : _name(name)
 		throw AForm::GradeTooLowException();
 }
 
-AForm::AForm(AForm const &src): _gradeSign(src._gradeSign), _gradeExec(src._gradeExec)
+AForm::AForm(AForm const &src) : _gradeSign(src._gradeSign), _gradeExec(src._gradeExec)
 {
 	std::cout << "Form copy constructor called" << std::endl;
 	*this = src;

@@ -21,7 +21,7 @@ int main(void)
 	{
 		bureaucrat->setGradeUp();
 	}
-	catch (std::exception & e)
+	catch (std::exception &e)
 	{
 		std::cout << "Error : " << e.what() << std::endl;
 	}
@@ -31,7 +31,7 @@ int main(void)
 		bureaucrat->setGrade(150);
 		bureaucrat->setGradeDown();
 	}
-	catch (std::exception & e)
+	catch (std::exception &e)
 	{
 		std::cout << "Error : " << e.what() << std::endl;
 	}
@@ -40,7 +40,7 @@ int main(void)
 	{
 		bureaucrat->setGrade(-1);
 	}
-	catch (std::exception & e)
+	catch (std::exception &e)
 	{
 		std::cout << "Error : " << e.what() << std::endl;
 	}
@@ -50,7 +50,7 @@ int main(void)
 		bureaucrat->setGrade(42);
 		std::cout << bureaucrat;
 	}
-	catch (std::exception & e)
+	catch (std::exception &e)
 	{
 		std::cout << "Error : " << e.what() << std::endl;
 	}

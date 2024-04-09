@@ -20,38 +20,10 @@ int main(void)
 
 	try
 	{
-		bureaucrat.setGradeUp();
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "Error : " << e.what() << std::endl;
-	}
-
-	try
-	{
-		bureaucrat.setGrade(150);
-		bureaucrat.setGradeDown();
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "Error : " << e.what() << std::endl;
-	}
-
-	try
-	{
-		bureaucrat.setGrade(-1);
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "Error : " << e.what() << std::endl;
-	}
-
-	try
-	{
 		bureaucrat.setGrade(42);
 		std::cout << &bureaucrat;
 	}
-	catch (std::exception & e)
+	catch (std::exception &e)
 	{
 		std::cout << "Error : " << e.what() << std::endl;
 	}
@@ -60,7 +32,7 @@ int main(void)
 	{
 		Form form = Form("Form0", 155, 11);
 	}
-	catch (std::exception & e)
+	catch (std::exception &e)
 	{
 		std::cout << "Error : " << e.what() << std::endl;
 	}
@@ -72,7 +44,7 @@ int main(void)
 	{
 		form.beSigned(bureaucrat);
 	}
-	catch (std::exception & e)
+	catch (std::exception &e)
 	{
 		std::cout << bureaucrat.getName() << " couldn’t sign " << form.getName() << " because : " << e.what() << std::endl;
 	}
@@ -83,7 +55,7 @@ int main(void)
 	{
 		form.beSigned(bureaucrat);
 	}
-	catch (std::exception & e)
+	catch (std::exception &e)
 	{
 		std::cout << bureaucrat.getName() << " couldn’t sign " << form.getName() << " because : " << e.what() << std::endl;
 	}
@@ -95,7 +67,7 @@ int main(void)
 		form.beSigned(bureaucrat);
 		std::cout << &form;
 	}
-	catch (std::exception & e)
+	catch (std::exception &e)
 	{
 		std::cout << bureaucrat.getName() << " couldn’t sign " << form.getName() << " because : " << e.what() << std::endl;
 	}

@@ -34,4 +34,3 @@ class Intern
 typedef AForm *(Intern::*FormCreator)(std::string const &);
 
 #endif
-

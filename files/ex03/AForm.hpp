@@ -28,7 +28,7 @@ class AForm
 		AForm(void);
 		AForm(std::string const name, int gradeSign, int gradeExec);
 		AForm(AForm const &src);
-		~AForm(void);
+		virtual ~AForm(void);
 
 		AForm &operator=(AForm const &rhs);
 
