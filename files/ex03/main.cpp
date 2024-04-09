@@ -51,7 +51,10 @@ int main(void)
 	rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
 	rrf = someRandomIntern.makeForm("RobotomyRequestForm", "Bender");
 	if (rrf)
+	{
 		std::cout << rrf << std::endl;
+		delete (rrf);
+	}
 
 	return (0);
 }

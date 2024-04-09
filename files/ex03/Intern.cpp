@@ -60,12 +60,13 @@ AForm *Intern::makeForm(std::string const &formName, std::string const &target)
 
     for (int i = 0; i < 3; i++)
     {
-        AForm* form = (this->*forms[i])(target);
+        AForm *form = (this->*forms[i])(target);
         if (formName == form->getName())
         {
 			std::cout << "Intern creates " << formName << std::endl;
             return (form);
         }
+		delete (form);
     }
 
     std::cout << "Intern cannot find the form requested" << std::endl;
